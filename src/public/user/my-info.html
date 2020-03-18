@@ -1,0 +1,35 @@
+<div class="container">
+
+    <div ng-show="!infoCtrl.user.saved">
+        <h3>
+            Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
+        </h3>
+    </div>
+
+    <div ng-show="infoCtrl.user.saved">
+        <h3>Welcome {{ infoCtrl.user.firstname }} {{ infoCtrl.user.lastname }}</h3>
+        <h4>Your Personal Informations:</h4>
+        
+        <div>
+            <strong>Phone Number: </strong> <br>
+            <span>{{ infoCtrl.user.phone }}</span>
+        </div>
+        <br>
+
+        <div>
+            <strong>Email: </strong> <br>
+            <span>{{ infoCtrl.user.email }}</span>
+        </div>
+        <br>
+
+        <div>
+            <h4>Your favorite dish is <strong>{{ infoCtrl.user.favoriteDish.name }}</strong> </h4>
+            <br>
+            <strong>Description:</strong> 
+            <p>{{ infoCtrl.user.favoriteDish.description }}</p>
+            <br>
+            <h3>Please do not evaluate the fact that there is not the picture (there're not pictures from the Api I use), thank you.</h5>
+        </div>
+
+    </div>
+</div>

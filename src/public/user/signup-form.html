@@ -1,0 +1,66 @@
+<fieldset>
+    <form name='regForm' novalidate>
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label>First name</label>
+                <input class="form-control" type="text" name="firstname" placeholder="Your first name"
+                ng-model="$ctrl.user.firstname"
+                required>
+                <span
+                    ng-if="regForm.firstname.$error.required && regForm.firstname.$touched">
+                    First name is required
+                </span>
+            </div>
+
+            <div class="form-group col-md-12">
+                <label>Last name</label>
+                <input class="form-control" type="text" name="lastname" placeholder="Your last name"
+                ng-model="$ctrl.user.lastname"
+                required>
+                <span
+                    ng-if="regForm.lastname.$error.required && regForm.lastname.$touched">
+                    Last name is required
+                </span>
+            </div>
+            <br>
+
+            <div class="form-group col-md-12">
+                <label>Email</label>
+                <input class="form-control" type="email" name="email" placeholder="Email"
+                ng-model="$ctrl.user.email"
+                required>
+                <span ng-if="(regForm.email.$invalid || regForm.email.$error.required) && regForm.email.$touched">
+                    Must be a valid email address: handle@domain format
+                </span>
+            </div>
+
+            <div class="form-group col-md-12">
+                <label>Phone number</label>
+                <input class="form-control" type="text" name="phone" placeholder="Phone ###-###-####"
+                ng-model="$ctrl.user.phone"
+                pattern="(\d{3})-(\d{3})-(\d{4})"
+                required>
+                <span ng-if="(regForm.phone.$invalid || regForm.phone.$error.required)  && regForm.phone.$touched">
+                    Phone must be in the format ###-###-####.
+                </span>
+            </div>
+            <br>
+
+
+            <div class="form-group col-md-12">
+                <label>Your favorite dish</label>
+                <input class="form-control" type="text" name="favoriteDish" placeholder="Your favorite dish (short name)"
+                ng-model="$ctrl.favoriteDish">
+                <span ng-if="regForm.favoriteDish.$touched && !$ctrl.isFavoriteDishExist()">No such menu number exists</span>
+            </div>
+            <br>
+            
+            <button class="btn btn-primary"
+            ng-disabled="regForm.$invalid"
+            ng-click="$ctrl.submit()">Submit</button>
+        </div>
+    </form>
+</fieldset>
+
+<div ng-if="$ctrl.invalid" class="alert alert-danger">Invalid dish!</div>
+<div ng-if="$ctrl.completed" class="alert alert-success">Your information has been saved. <a ui-sref="public.myinfo">See my infos</a></div>

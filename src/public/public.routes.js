@@ -40,6 +40,19 @@ function routeConfig ($stateProvider) {
           return MenuService.getMenuItems($stateParams.category);
         }]
       }
+    })
+    .state('public.myinfo', {
+      url: '/myinfo',
+      templateUrl: 'src/public/user/my-info.html',
+      controller: 'MyInfoController',
+      controllerAs: 'infoCtrl',
+      resolve: {
+        userInfo: ['MenuService', function (MenuService) { return MenuService.userInfo; }]
+      }
+    })
+    .state('public.signup', {
+      url: '/signup',
+      templateUrl: 'src/public/user/signup.html'
     });
 }
 })();

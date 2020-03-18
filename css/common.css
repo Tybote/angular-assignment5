@@ -18,3 +18,27 @@
 .ui-view-placeholder {
     margin-top: 60px;
 }
+
+.ng-touched.ng-valid {
+    border: 2px #00FF80 solid;
+}
+
+.ng-touched.ng-invalid {
+    border: 2px #FF3333 solid;
+}
+
+input {
+    color: black;
+    width: 80%
+}
+
+.alert {
+    margin-top: 13px;
+}
+
+h3 {
+    text-align: center;
+}
+
+
+
